@@ -5,13 +5,15 @@ class ATM():
         self._balance = balance
 
     def deposit(self):
-        amount_deposit = float(input("Type the amount you would like to deposit? "))
-        if amount_deposit > 0:
-            self._balance += amount_deposit
-            return f"\n{amount_deposit}e was deposit into your account. \n"
-        else: 
-            return f"Error, invalid operation. \n"
-        # return self.money
+        try:
+            amount_deposit = float(input("Type the amount you would like to deposit? "))
+            if amount_deposit > 0:
+                self._balance += amount_deposit
+                return f"\n{amount_deposit}e was deposit into your account. \n"
+            elif amount_deposit <= 0: 
+                return f"Error, invalid operation. \n"
+        except:
+            print("Invalid input, please enter a valid number.")
 
     def withdraw(self):
         transaction = False
